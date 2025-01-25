@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model DevQuiz
+@{
+    ViewData["Title"] = "Dev Quiz";
+}
+<h1>Harry Potter Promotion</h1>
+
+<form method="post" asp-action="CalculateDiscount">
+    <div>
+        <label for="book1">1.แฮร์รี่ พอตเตอร์กับศิลาอาถรรพ์ (จำนวนเล่ม):</label>
+        <input type="number" id="book1" name="books1" min="0">
+    </div>
+    <div>
+        <label for="book2">2.แฮร์รี่ พอตเตอร์กับห้องแห่งความลับ (จำนวนเล่ม):</label>
+        <input type="number" id="book2" name="books2" min="0">
+    </div>
+    <div>
+        <label for="book3">3.แฮร์รี่ พอตเตอร์กับนักโทษแห่งอัซคาบัน (จำนวนเล่ม):</label>
+        <input type="number" id="book3" name="books3" min="0">
+    </div>
+    <div>
+        <label for="book4">4.แฮร์รี่ พอตเตอร์กับถ้วยอัคนี (จำนวนเล่ม):</label>
+        <input type="number" id="book4" name="books4" min="0">
+    </div>
+    <div>
+        <label for="book5">5.แฮร์รี่ พอตเตอร์กับภาคีนกฟีนิกซ์ (จำนวนเล่ม):</label>
+        <input type="number" id="book5" name="books5" min="0">
+    </div>
+    <div>
+        <label for="book6">6.แฮร์รี่ พอตเตอร์กับเจ้าชายเลือดผสม (จำนวนเล่ม):</label>
+        <input type="number" id="book6" name="books6" min="0">
+    </div>
+    <div>
+        <label for="book7">7.แฮร์รี่ พอตเตอร์กับเครื่องรางยมทูต (จำนวนเล่ม):</label>
+        <input type="number" id="book7" name="books7" min="0">
+    </div>
+    <button type="submit">คำนวณ</button>
+</form>
+
+@if (ViewBag.TotalPrice != null)
+{
+    <h2>ผลลัพธ์:</h2>
+    <p>จำนวนหนังสือทั้งหมด: @ViewBag.TotalBooks เล่ม</p>
+    <p>ราคารวมก่อนส่วนลด: @ViewBag.TotalPrice บาท</p>
+    <p>ส่วนลดทั้งหมด: @ViewBag.TotalDiscount บาท</p>
+    <p>ราคารวมสุทธิ: @ViewBag.FinalPrice บาท</p>
+}
